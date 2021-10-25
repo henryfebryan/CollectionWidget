@@ -7,13 +7,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
+import java.util.*
 
 class ListRemoteViewsFactory(
     private val context: Context,
     private val intent: Intent
 ) : RemoteViewsService.RemoteViewsFactory {
 
-    private lateinit var widgetItems: MutableList<WidgetItem>
+    private var widgetItems: MutableList<WidgetItem> = mutableListOf()
     private var mAppWidgetId = 0
 
     override fun onCreate() {
@@ -23,13 +24,11 @@ class ListRemoteViewsFactory(
         )
         Log.d("TAG", "onCreate(): $mAppWidgetId")
 
-        widgetItems = MutableList(10) { index -> WidgetItem("$index!") }
-
-        // Sleep for 3 seconds here to show how the empty view appears.
-        try {
-            Thread.sleep(3000)
-        } catch (e: InterruptedException) {
-            e.printStackTrace()
+        val companyList: ArrayList<String>? = intent.getStringArrayListExtra("companyList")
+        companyList?.let { arr ->
+            for (name in arr) {
+                widgetItems.add(WidgetItem(name))
+            }
         }
     }
 
@@ -41,7 +40,7 @@ class ListRemoteViewsFactory(
 
             val fillInIntent = Intent().apply {
                 Bundle().also { extras ->
-                    extras.putInt(EXTRA_ITEM, position)
+                    extras.putString(EXTRA_ITEM, widgetItems[position].text)
                     putExtras(extras)
                 }
             }

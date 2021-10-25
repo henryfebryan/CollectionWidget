@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.collectionwidget">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,6 +37,8 @@
         <service
             android:name=".ListRemoteViewsService"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <service android:name=".UpdateWidgetService" />
     </application>
 
 </manifest>
