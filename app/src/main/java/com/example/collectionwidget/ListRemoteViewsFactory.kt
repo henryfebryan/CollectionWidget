@@ -77,5 +77,6 @@ class ListRemoteViewsFactory(
     }
 
     override fun onDataSetChanged() {
+        // called when notifyDataSetChanged() is triggered on the remote adapter.
     }
 }
