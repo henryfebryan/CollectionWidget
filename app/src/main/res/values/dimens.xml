@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widget_margin">0dp</dimen>
+    <dimen name="widget_margin_layout">8dp</dimen>
+    <dimen name="txt_font_size">20sp</dimen>
+    <dimen name="padding_item">10dp</dimen>
+    <dimen name="txt_font_size_item">30sp</dimen>
+</resources>

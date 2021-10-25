@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Widget.CollectionWidget.AppWidget.Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/widget_margin_layout"
+    android:theme="@style/Theme.CollectionWidget.AppWidgetContainer">
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:loopViews="true" />
+
+    <TextView
+        android:id="@+id/empty_view"
+        style="@style/Widget.CollectionWidget.AppWidget.InnerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/widget_item_background_empty"
+        android:gravity="center"
+        android:text="@string/txt_empty"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_font_size"
+        android:textStyle="bold" />
+</RelativeLayout>
